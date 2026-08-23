@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Neumorphic Base Palette -->
+    <color name="app_background">#F0F4F8</color>
+    <color name="surface_color">#F0F4F8</color>
+    <color name="top_left_highlight">#FFFFFF</color>
+    <color name="bottom_right_shadow">#D1D9E6</color>
+
+    <!-- Electric Accent Colors -->
+    <color name="electric_primary_blue">#0066FF</color>
+    <color name="electric_success_green">#00CC66</color>
+    <color name="electric_warning_amber">#FFB300</color>
+    <color name="electric_alert_red">#FF3B30</color>
+
+    <!-- Typography Colors -->
+    <color name="text_primary">#1A2536</color>
+    <color name="text_secondary">#62758F</color>
+
+    <!-- Standard Colors -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+</resources>

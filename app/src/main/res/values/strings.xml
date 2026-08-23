@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">SMS</string>
+    <string name="login">Login</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="welcome_back">Welcome Back</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="student_id_format">ID: %1$s</string>
+    <string name="course_credits_format">%1$d Credits | %2$s</string>
+    <string name="due_date_format">Due: %1$s</string>
+    <string name="exam_date_format">Date: %1$s</string>
+    <string name="duration_mins_format">%1$s mins</string>
+</resources>

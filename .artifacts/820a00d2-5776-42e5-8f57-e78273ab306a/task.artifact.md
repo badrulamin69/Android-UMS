@@ -1,0 +1,4 @@
+- `[x]` Refactor `SecurityConfig.java` authentication provider
+- `[x]` Update `DataInitializer.java` to ensure student password
+- `[/]` Deploy and test login
+- `[ ]` Verify success in Logcat
