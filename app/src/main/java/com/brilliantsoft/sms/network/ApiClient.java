@@ -4,6 +4,10 @@ import android.content.Context;
 import com.brilliantsoft.sms.utils.Constants;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonDeserializer;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.concurrent.TimeUnit;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -16,7 +20,13 @@ public class ApiClient {
     private final Retrofit retrofitWithoutAuth;
 
     private ApiClient(Context ctx) {
-        Gson gson = new GsonBuilder().setLenient().create();
+        Gson gson = new GsonBuilder()
+                .setLenient()
+                .registerTypeAdapter(LocalDate.class, (JsonDeserializer<LocalDate>) (json, typeOfT, context) -> 
+                        LocalDate.parse(json.getAsString(), DateTimeFormatter.ISO_LOCAL_DATE))
+                .registerTypeAdapter(LocalDateTime.class, (JsonDeserializer<LocalDateTime>) (json, typeOfT, context) -> 
+                        LocalDateTime.parse(json.getAsString(), DateTimeFormatter.ISO_LOCAL_DATE_TIME))
+                .create();
         HttpLoggingInterceptor log = new HttpLoggingInterceptor();
         log.setLevel(HttpLoggingInterceptor.Level.BODY);
         log.redactHeader("Authorization");

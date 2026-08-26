@@ -1,6 +1,7 @@
 package com.brilliantsoft.sms.ui.courses;
 
 import android.os.Bundle;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -44,12 +45,14 @@ public class CourseListActivity extends AppCompatActivity {
             public void onResponse(Call<PageResponse<CourseResponse>> call, Response<PageResponse<CourseResponse>> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     adapter.setCourses(response.body().getContent());
+                } else {
+                    Toast.makeText(CourseListActivity.this, "Failed to load courses", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<PageResponse<CourseResponse>> call, Throwable t) {
-                // Handle failure
+                Toast.makeText(CourseListActivity.this, "Network error", Toast.LENGTH_SHORT).show();
             }
         });
     }

@@ -31,8 +31,9 @@ public class AttendanceAdapter extends RecyclerView.Adapter<AttendanceAdapter.Vi
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         StudentAttendanceResponse item = attendanceList.get(position);
-        holder.tvDate.setText(item.getAttendanceDate().toString());
-        holder.tvStatus.setText(item.getStatus());
+        String dateStr = item.getAttendanceDate() != null ? item.getAttendanceDate().toString() : "Unknown Date";
+        holder.tvDate.setText(dateStr);
+        holder.tvStatus.setText(item.getStatus() != null ? item.getStatus() : "N/A");
         
         if ("PRESENT".equalsIgnoreCase(item.getStatus())) {
             holder.tvStatus.setTextColor(Color.parseColor("#00CC66"));

@@ -1,5 +1,6 @@
 package com.brilliantsoft.sms.ui.adapter;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.brilliantsoft.sms.R;
 import com.brilliantsoft.sms.model.CourseResponse;
+import com.brilliantsoft.sms.ui.courses.CourseDetailActivity;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,6 +35,12 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder
         holder.tvCourseName.setText(course.getCourseName());
         holder.tvCourseCode.setText(course.getCourseCode());
         holder.tvCredits.setText(holder.itemView.getContext().getString(R.string.course_credits_format, course.getCredit(), course.getDepartmentName()));
+
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(v.getContext(), CourseDetailActivity.class);
+            intent.putExtra(CourseDetailActivity.EXTRA_COURSE_ID, course.getId());
+            v.getContext().startActivity(intent);
+        });
     }
 
     @Override

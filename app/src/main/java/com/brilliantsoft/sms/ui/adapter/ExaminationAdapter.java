@@ -30,8 +30,9 @@ public class ExaminationAdapter extends RecyclerView.Adapter<ExaminationAdapter.
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         ExaminationResponse exam = exams.get(position);
-        holder.tvExamTitle.setText(exam.getExaminationName());
-        holder.tvExamDate.setText(holder.itemView.getContext().getString(R.string.exam_date_format, exam.getExaminationDate().toString()));
+        holder.tvExamTitle.setText(exam.getExaminationName() != null ? exam.getExaminationName() : "Unnamed Exam");
+        String dateStr = exam.getExaminationDate() != null ? exam.getExaminationDate().toString() : "TBA";
+        holder.tvExamDate.setText(holder.itemView.getContext().getString(R.string.exam_date_format, dateStr));
     }
 
     @Override

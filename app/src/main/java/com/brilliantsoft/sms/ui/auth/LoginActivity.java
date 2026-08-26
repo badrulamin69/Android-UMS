@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.brilliantsoft.sms.R;
 import com.brilliantsoft.sms.model.LoginRequest;
 import com.brilliantsoft.sms.model.LoginResponse;
+import com.brilliantsoft.sms.model.StudentResponse;
 import com.brilliantsoft.sms.network.ApiClient;
 import com.brilliantsoft.sms.network.ApiService;
 import com.brilliantsoft.sms.session.SessionManager;
@@ -59,13 +60,15 @@ public class LoginActivity extends AppCompatActivity {
         apiService.login(new LoginRequest(username, password)).enqueue(new Callback<>() {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
-                btnLogin.setEnabled(true);
                 if (response.isSuccessful() && response.body() != null) {
                     sessionManager.saveLogin(response.body());
-                    Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                    finish();
+                    if (sessionManager.isStudent()) {
+                        fetchStudentInfoAndNavigate();
+                    } else {
+                        navigateToMain();
+                    }
                 } else {
+                    btnLogin.setEnabled(true);
                     Toast.makeText(LoginActivity.this, "Login Failed", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -76,5 +79,29 @@ public class LoginActivity extends AppCompatActivity {
                 Toast.makeText(LoginActivity.this, "Network Error", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private void fetchStudentInfoAndNavigate() {
+        ApiClient.getInstance(this).getApiService().getMe().enqueue(new Callback<>() {
+            @Override
+            public void onResponse(Call<StudentResponse> call, Response<StudentResponse> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    StudentResponse student = response.body();
+                    sessionManager.saveStudentInfo(student.getId(), student.getStudentCode(), student.getProgramName());
+                }
+                navigateToMain();
+            }
+
+            @Override
+            public void onFailure(Call<StudentResponse> call, Throwable t) {
+                navigateToMain(); // Navigate anyway, profile can retry
+            }
+        });
+    }
+
+    private void navigateToMain() {
+        Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(LoginActivity.this, MainActivity.class));
+        finish();
     }
 }

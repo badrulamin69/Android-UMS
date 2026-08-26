@@ -88,9 +88,10 @@
                         android:textColor="@color/text_secondary"
                         android:textSize="12sp" />
                     <TextView
+                        android:id="@+id/tvGpa"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="3.85"
+                        android:text="0.00"
                         android:textColor="@color/electric_primary_blue"
                         android:textSize="18sp"
                         android:textStyle="bold" />
@@ -113,9 +114,10 @@
                         android:textColor="@color/text_secondary"
                         android:textSize="12sp" />
                     <TextView
+                        android:id="@+id/tvCredits"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="112/136"
+                        android:text="0/0"
                         android:textColor="@color/electric_success_green"
                         android:textSize="18sp"
                         android:textStyle="bold" />

@@ -1,6 +1,7 @@
 package com.brilliantsoft.sms.ui.assignment;
 
 import android.os.Bundle;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -43,12 +44,14 @@ public class AssignmentActivity extends AppCompatActivity {
             public void onResponse(Call<PageResponse<Map<String, Object>>> call, Response<PageResponse<Map<String, Object>>> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     adapter.setAssignments(response.body().getContent());
+                } else {
+                    Toast.makeText(AssignmentActivity.this, "Failed to load assignments", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<PageResponse<Map<String, Object>>> call, Throwable t) {
-                // Handle failure
+                Toast.makeText(AssignmentActivity.this, "Network Error", Toast.LENGTH_SHORT).show();
             }
         });
     }

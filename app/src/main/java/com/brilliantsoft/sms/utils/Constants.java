@@ -2,7 +2,7 @@ package com.brilliantsoft.sms.utils;
 
 public final class Constants {
     private Constants() {}
-    public static final String BASE_URL = "http://10.0.2.2:8085/";
+    public static final String BASE_URL = "http://192.168.0.103:8085/";
     public static final String API_BASE = BASE_URL + "api/";
     public static final String PREF_NAME = "sms_secure_session";
     public static final String KEY_TOKEN = "token";

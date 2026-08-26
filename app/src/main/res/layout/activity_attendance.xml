@@ -67,9 +67,10 @@
                     android:textColor="@color/text_secondary"
                     android:textSize="10sp" />
                 <TextView
+                    android:id="@+id/tvPresentCount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="18"
+                    android:text="0"
                     android:textColor="@color/electric_success_green"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -88,9 +89,10 @@
                     android:textColor="@color/text_secondary"
                     android:textSize="10sp" />
                 <TextView
+                    android:id="@+id/tvAbsentCount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="2"
+                    android:text="0"
                     android:textColor="@color/electric_alert_red"
                     android:textStyle="bold" />
             </LinearLayout>

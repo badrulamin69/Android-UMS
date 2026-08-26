@@ -1,6 +1,7 @@
 package com.brilliantsoft.sms.ui.library;
 
 import android.os.Bundle;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -43,12 +44,14 @@ public class LibraryActivity extends AppCompatActivity {
             public void onResponse(Call<PageResponse<BookResponse>> call, Response<PageResponse<BookResponse>> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     adapter.setBooks(response.body().getContent());
+                } else {
+                    Toast.makeText(LibraryActivity.this, "Failed to load books", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<PageResponse<BookResponse>> call, Throwable t) {
-                // Handle failure
+                Toast.makeText(LibraryActivity.this, "Network Error", Toast.LENGTH_SHORT).show();
             }
         });
     }

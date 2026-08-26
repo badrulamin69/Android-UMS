@@ -15,13 +15,13 @@ public class StudentResponse {
     @SerializedName("studentId")
     private String studentId;
     
-    @SerializedName("fullName")
+    @SerializedName(value = "fullName", alternate = {"name", "studentName", "displayName"})
     private String fullName;
     
-    @SerializedName("email")
+    @SerializedName(value = "email", alternate = {"userEmail", "mail"})
     private String email;
     
-    @SerializedName("phone")
+    @SerializedName(value = "phone", alternate = {"mobile", "phoneNumber"})
     private String phone;
     
     @SerializedName("admissionDate")

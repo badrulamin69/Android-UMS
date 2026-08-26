@@ -30,10 +30,10 @@ public class RoutineAdapter extends RecyclerView.Adapter<RoutineAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Map<String, Object> routine = routines.get(position);
-        holder.tvTime.setText((String) routine.get("startTime"));
-        holder.tvDuration.setText(holder.itemView.getContext().getString(R.string.duration_mins_format, String.valueOf(routine.get("durationMinutes"))));
-        holder.tvSubject.setText((String) routine.get("courseName"));
-        holder.tvRoom.setText((String) routine.get("roomName"));
+        holder.tvTime.setText(String.valueOf(routine.getOrDefault("startTime", "N/A")));
+        holder.tvDuration.setText(holder.itemView.getContext().getString(R.string.duration_mins_format, String.valueOf(routine.getOrDefault("durationMinutes", "0"))));
+        holder.tvSubject.setText(String.valueOf(routine.getOrDefault("courseName", "Unknown Subject")));
+        holder.tvRoom.setText(String.valueOf(routine.getOrDefault("roomName", "TBA")));
     }
 
     @Override

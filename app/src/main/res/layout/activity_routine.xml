@@ -43,6 +43,7 @@
             android:padding="4dp">
 
             <TextView
+                android:id="@+id/btnMon"
                 android:layout_width="80dp"
                 android:layout_height="40dp"
                 android:background="@drawable/neumorphic_card_raised"
@@ -52,6 +53,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/btnTue"
                 android:layout_width="80dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="12dp"
@@ -60,6 +62,7 @@
                 android:textColor="@color/text_secondary" />
 
             <TextView
+                android:id="@+id/btnWed"
                 android:layout_width="80dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="12dp"
@@ -68,6 +71,7 @@
                 android:textColor="@color/text_secondary" />
 
             <TextView
+                android:id="@+id/btnThu"
                 android:layout_width="80dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="12dp"
@@ -76,6 +80,7 @@
                 android:textColor="@color/text_secondary" />
 
             <TextView
+                android:id="@+id/btnFri"
                 android:layout_width="80dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="12dp"

@@ -52,21 +52,21 @@ public class StudentProfileResponse {
     private String updatedAt;
 
     // Enriched student details
-    @SerializedName("studentName")
+    @SerializedName(value = "studentName", alternate = {"fullName", "name", "displayName"})
     private String studentName;
     
-    @SerializedName("studentCode")
+    @SerializedName(value = "studentCode", alternate = {"studentId", "uniqueCode", "code"})
     private String studentCode;
     
-    @SerializedName("email")
+    @SerializedName(value = "email", alternate = {"userEmail", "contactEmail", "mail"})
     private String email;
     
-    @SerializedName("phone")
+    @SerializedName(value = "phone", alternate = {"mobile", "phoneNumber", "contactNumber", "cell"})
     private String phone;
     
-    @SerializedName("programName")
+    @SerializedName(value = "programName", alternate = {"program", "courseOfStudy"})
     private String programName;
     
-    @SerializedName("departmentName")
+    @SerializedName(value = "departmentName", alternate = {"department", "dept"})
     private String departmentName;
 }

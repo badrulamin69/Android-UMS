@@ -144,9 +144,10 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
+                    android:id="@+id/tvAttendancePercent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="85%"
+                    android:text="0%"
                     android:textColor="@color/electric_primary_blue"
                     android:textSize="20sp"
                     android:textStyle="bold"
@@ -182,6 +183,221 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+            <!-- Quick Actions Grid -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="Quick Actions"
+                android:textColor="@color/text_primary"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:columnCount="4"
+                android:useDefaultMargins="true">
+
+                <!-- Attendance -->
+                <LinearLayout
+                    android:id="@+id/btnAttendance"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:background="@drawable/neumorphic_button_raised"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@android:drawable/ic_menu_my_calendar"
+                        app:tint="@color/electric_primary_blue" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Attend"
+                        android:textColor="@color/text_primary"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <!-- Fees -->
+                <LinearLayout
+                    android:id="@+id/btnFees"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:background="@drawable/neumorphic_button_raised"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@android:drawable/ic_menu_save"
+                        app:tint="@color/electric_success_green" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Fees"
+                        android:textColor="@color/text_primary"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <!-- Notice -->
+                <LinearLayout
+                    android:id="@+id/btnNotice"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:background="@drawable/neumorphic_button_raised"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@android:drawable/ic_dialog_info"
+                        app:tint="@color/electric_primary_blue" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Notice"
+                        android:textColor="@color/text_primary"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <!-- Assignments -->
+                <LinearLayout
+                    android:id="@+id/btnAssignments"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:background="@drawable/neumorphic_button_raised"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@android:drawable/ic_menu_edit"
+                        app:tint="@color/electric_primary_blue" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Assign"
+                        android:textColor="@color/text_primary"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <!-- Exams -->
+                <LinearLayout
+                    android:id="@+id/btnExams"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/neumorphic_button_raised"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@android:drawable/ic_menu_view"
+                        app:tint="@color/electric_primary_blue" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Exams"
+                        android:textColor="@color/text_primary"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <!-- Library -->
+                <LinearLayout
+                    android:id="@+id/btnLibrary"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/neumorphic_button_raised"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@android:drawable/ic_menu_agenda"
+                        app:tint="@color/electric_primary_blue" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Library"
+                        android:textColor="@color/text_primary"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <!-- Hostel -->
+                <LinearLayout
+                    android:id="@+id/btnHostel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/neumorphic_button_raised"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@android:drawable/ic_menu_myplaces"
+                        app:tint="@color/electric_primary_blue" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Hostel"
+                        android:textColor="@color/text_primary"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <!-- Transcript -->
+                <LinearLayout
+                    android:id="@+id/btnTranscript"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/neumorphic_button_raised"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@android:drawable/ic_menu_sort_by_size"
+                        app:tint="@color/electric_primary_blue" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Transcr"
+                        android:textColor="@color/text_primary"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+            </GridLayout>
+
             <!-- Schedule Preview Header -->
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -206,78 +422,13 @@
                     android:textSize="14sp" />
             </RelativeLayout>
 
-            <!-- Mock Schedule Items -->
+            <!-- Dynamic Schedule Items -->
             <LinearLayout
+                android:id="@+id/llScheduleContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:orientation="vertical">
-
-                <!-- Active Class Item -->
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="12dp"
-                    android:background="@drawable/neumorphic_active_card"
-                    android:padding="16dp">
-
-                    <TextView
-                        android:id="@+id/tvCourseName"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Advanced Mathematics"
-                        android:textColor="@color/text_primary"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="09:00 AM - 10:30 AM"
-                        android:textColor="@color/text_secondary"
-                        android:textSize="12sp"
-                        app:layout_constraintStart_toStartOf="@id/tvCourseName"
-                        app:layout_constraintTop_toBottomOf="@id/tvCourseName" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Ongoing"
-                        android:textColor="@color/electric_primary_blue"
-                        android:textSize="12sp"
-                        android:textStyle="bold"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="12dp"
-                    android:background="@drawable/neumorphic_card_raised"
-                    android:padding="16dp">
-
-                    <TextView
-                        android:id="@+id/tvCourseName2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Physics II"
-                        android:textColor="@color/text_primary"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="11:00 AM - 12:30 PM"
-                        android:textColor="@color/text_secondary"
-                        android:textSize="12sp"
-                        app:layout_constraintStart_toStartOf="@id/tvCourseName2"
-                        app:layout_constraintTop_toBottomOf="@id/tvCourseName2" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
 
             </LinearLayout>
 

@@ -1,6 +1,7 @@
 package com.brilliantsoft.sms.ui.notice;
 
 import android.os.Bundle;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -43,12 +44,14 @@ public class NoticeActivity extends AppCompatActivity {
             public void onResponse(Call<PageResponse<Map<String, Object>>> call, Response<PageResponse<Map<String, Object>>> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     adapter.setNotices(response.body().getContent());
+                } else {
+                    Toast.makeText(NoticeActivity.this, "Failed to load notices", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<PageResponse<Map<String, Object>>> call, Throwable t) {
-                // Handle failure
+                Toast.makeText(NoticeActivity.this, "Network error", Toast.LENGTH_SHORT).show();
             }
         });
     }
